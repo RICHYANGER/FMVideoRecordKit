@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "FMVideoRecordKit"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "FMVideoRecordKit is an custom tool for VideoRecording."
 
   # This description is used to generate tags and improve search results.
@@ -39,8 +39,8 @@ FMVideoRecordKit 是一个视频录屏工具集合类方便快速接入录制视
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  #s.license      = "MIT"
+  s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
