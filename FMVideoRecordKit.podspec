@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "FMVideoRecordKit"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "FMVideoRecordKit is an custom tool for VideoRecording."
 
   # This description is used to generate tags and improve search results.
@@ -24,7 +24,9 @@ Pod::Spec.new do |s|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = <<-DESC FMVideoRecordKit 是一个视频录屏工具集合类方便快速接入录制视频功能 DESC
+  s.description  = <<-DESC 
+FMVideoRecordKit 是一个视频录屏工具集合类方便快速接入录制视频功能 主要包含以下功能：1)录屏数据的写入本地文件 2)根据不同的清晰度设置不同的录屏参数 3)将视频文件写入相册
+	DESC
 
   s.homepage     = "https://github.com/RICHYANGER/FMVideoRecordKit"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
