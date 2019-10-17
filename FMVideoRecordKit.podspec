@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC 
 FMVideoRecordKit 是一个视频录屏工具集合类方便快速接入录制视频功能 主要包含以下功能：1)录屏数据的写入本地文件 2)根据不同的清晰度设置不同的录屏参数 3)将视频文件写入相册
 	DESC
-
+  # 项目主页
   s.homepage     = "https://github.com/RICHYANGER/FMVideoRecordKit"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
@@ -40,7 +40,7 @@ FMVideoRecordKit 是一个视频录屏工具集合类方便快速接入录制视
   #
 
   #s.license      = "MIT"
-  s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  s.license      = { :type => "MIT", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -52,7 +52,7 @@ FMVideoRecordKit 是一个视频录屏工具集合类方便快速接入录制视
   #  Specify a social_media_url where others can refer to, for example a twitter
   #  profile URL.
   #
-
+  # 作者
   s.author             = { "rich" => "richyounger@163.com" }
   # Or just: s.author    = "rich"
   # s.authors            = { "rich" => "richyounger@163.com" }
@@ -65,7 +65,7 @@ FMVideoRecordKit 是一个视频录屏工具集合类方便快速接入录制视
   #
 
   # s.platform     = :ios
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "10.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -79,7 +79,7 @@ FMVideoRecordKit 是一个视频录屏工具集合类方便快速接入录制视
   #  Specify the location from where the source should be retrieved.
   #  Supports git, hg, bzr, svn and HTTP.
   #
-
+  # 代码的git地址
   s.source       = { :git => "https://github.com/RICHYANGER/FMVideoRecordKit.git", :tag => "#{s.version}" }
 
 
