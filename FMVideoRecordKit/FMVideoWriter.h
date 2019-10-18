@@ -31,7 +31,7 @@
 // @param orientation 设备方向
 - (id)initWithDispatchQueue:(dispatch_queue_t)dispatchQueue VideoSettings:(NSDictionary *)videoSettings audioSettings:(NSDictionary *)audioSettings  RecordVideoOrientation:(FMVideoRecordOrientation)orientation;
 
-- (id)initWithdispatchQueue:(dispatch_queue_t)dispatchQueue VideoDefition:(FMVideoRecordDefinition)defition  RecordVideoOrientation:(FMVideoRecordOrientation)orientation;
+- (id)initWithDispatchQueue:(dispatch_queue_t)dispatchQueue VideoDefition:(FMVideoRecordDefinition)defition  RecordVideoOrientation:(FMVideoRecordOrientation)orientation;
 
 // 开启录屏数据写入
 // @param error <#error description#>

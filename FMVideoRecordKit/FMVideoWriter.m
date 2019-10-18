@@ -45,7 +45,7 @@
     return self;
 }
 
-- (id)initWithdispatchQueue:(dispatch_queue_t)dispatchQueue VideoDefition:(FMVideoRecordDefinition)defition RecordVideoOrientation:(FMVideoRecordOrientation)orientation
+- (id)initWithDispatchQueue:(dispatch_queue_t)dispatchQueue VideoDefition:(FMVideoRecordDefinition)defition RecordVideoOrientation:(FMVideoRecordOrientation)orientation
 {
     self = [super init];
     if (self) {
