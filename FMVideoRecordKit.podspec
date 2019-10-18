@@ -65,7 +65,7 @@ FMVideoRecordKit 是一个视频录屏工具集合类方便快速接入录制视
   #
 
   # s.platform     = :ios
-  s.platform     = :ios, "10.0"
+  s.platform     = :ios, "8.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"

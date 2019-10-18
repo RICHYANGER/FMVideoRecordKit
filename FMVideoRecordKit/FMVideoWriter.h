@@ -45,13 +45,6 @@
 // @param sampleBuffer 录屏buffer
 // @param bufferType <#bufferType description#>
 // @param error <#error description#>
-- (void)writeVideoBuffer:(CMSampleBufferRef)sampleBuffer bufferType:(RPSampleBufferType)bufferType error:(NSError **)error;
+- (void)writeVideoBuffer:(CMSampleBufferRef)sampleBuffer bufferType:(RPSampleBufferType)bufferType error:(NSError **)error API_AVAILABLE(ios(10.0)) API_AVAILABLE(ios(10.0));;
 
 @end
-
-
-/* To-do :
- 1、根据不同的分辨率 设置 比特率、分辨率、帧率
- 2、根据横竖屏 设置方向
- 3、
- */

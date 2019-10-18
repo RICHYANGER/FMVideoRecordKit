@@ -1,0 +1,645 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9B6B21A22358C19400FBFE72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B21A12358C19400FBFE72 /* AppDelegate.m */; };
+		9B6B21A52358C19400FBFE72 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B21A42358C19400FBFE72 /* SceneDelegate.m */; };
+		9B6B21A82358C19400FBFE72 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B21A72358C19400FBFE72 /* ViewController.m */; };
+		9B6B21AB2358C19400FBFE72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B21A92358C19400FBFE72 /* Main.storyboard */; };
+		9B6B21AD2358C19500FBFE72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B21AC2358C19500FBFE72 /* Assets.xcassets */; };
+		9B6B21B02358C19500FBFE72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B21AE2358C19500FBFE72 /* LaunchScreen.storyboard */; };
+		9B6B21B32358C19500FBFE72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B21B22358C19500FBFE72 /* main.m */; };
+		9B6B21BD2358C19500FBFE72 /* FMVideoRecordingDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B21BC2358C19500FBFE72 /* FMVideoRecordingDemoTests.m */; };
+		9B6B21C82358C19500FBFE72 /* FMVideoRecordingDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B21C72358C19500FBFE72 /* FMVideoRecordingDemoUITests.m */; };
+		9B6B21DF2358C1AD00FBFE72 /* FMVideoWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B21D82358C1AD00FBFE72 /* FMVideoWriter.m */; };
+		9B6B21E02358C1AD00FBFE72 /* FMVideoConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B21DA2358C1AD00FBFE72 /* FMVideoConstant.m */; };
+		9B6B21E12358C1AD00FBFE72 /* FMVideoFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B21DB2358C1AD00FBFE72 /* FMVideoFileTool.m */; };
+		9B6B21E22358C1AD00FBFE72 /* FMVideoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B21DE2358C1AD00FBFE72 /* FMVideoHelper.m */; };
+		9B6B21EE2358C2F100FBFE72 /* FMVideoRecordKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B21EB2358C2F100FBFE72 /* FMVideoRecordKit.podspec */; };
+		9B6B21EF2358C2F100FBFE72 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B21EC2358C2F100FBFE72 /* LICENSE */; };
+		9B6B21F02358C2F100FBFE72 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B21ED2358C2F100FBFE72 /* README.md */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9B6B21B92358C19500FBFE72 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B6B21952358C19400FBFE72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B6B219C2358C19400FBFE72;
+			remoteInfo = FMVideoRecordingDemo;
+		};
+		9B6B21C42358C19500FBFE72 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B6B21952358C19400FBFE72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B6B219C2358C19400FBFE72;
+			remoteInfo = FMVideoRecordingDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9B6B219D2358C19400FBFE72 /* FMVideoRecordingDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FMVideoRecordingDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B6B21A02358C19400FBFE72 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9B6B21A12358C19400FBFE72 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9B6B21A32358C19400FBFE72 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		9B6B21A42358C19400FBFE72 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		9B6B21A62358C19400FBFE72 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9B6B21A72358C19400FBFE72 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9B6B21AA2358C19400FBFE72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9B6B21AC2358C19500FBFE72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9B6B21AF2358C19500FBFE72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9B6B21B12358C19500FBFE72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B6B21B22358C19500FBFE72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9B6B21B82358C19500FBFE72 /* FMVideoRecordingDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FMVideoRecordingDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B6B21BC2358C19500FBFE72 /* FMVideoRecordingDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMVideoRecordingDemoTests.m; sourceTree = "<group>"; };
+		9B6B21BE2358C19500FBFE72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B6B21C32358C19500FBFE72 /* FMVideoRecordingDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FMVideoRecordingDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B6B21C72358C19500FBFE72 /* FMVideoRecordingDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMVideoRecordingDemoUITests.m; sourceTree = "<group>"; };
+		9B6B21C92358C19500FBFE72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B6B21D62358C1AD00FBFE72 /* FMVideoFileTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMVideoFileTool.h; sourceTree = "<group>"; };
+		9B6B21D72358C1AD00FBFE72 /* FMVideoConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMVideoConstant.h; sourceTree = "<group>"; };
+		9B6B21D82358C1AD00FBFE72 /* FMVideoWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMVideoWriter.m; sourceTree = "<group>"; };
+		9B6B21D92358C1AD00FBFE72 /* FMVideoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMVideoHelper.h; sourceTree = "<group>"; };
+		9B6B21DA2358C1AD00FBFE72 /* FMVideoConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMVideoConstant.m; sourceTree = "<group>"; };
+		9B6B21DB2358C1AD00FBFE72 /* FMVideoFileTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMVideoFileTool.m; sourceTree = "<group>"; };
+		9B6B21DC2358C1AD00FBFE72 /* FMVideoWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMVideoWriter.h; sourceTree = "<group>"; };
+		9B6B21DD2358C1AD00FBFE72 /* FMVideoRecordKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMVideoRecordKit.h; sourceTree = "<group>"; };
+		9B6B21DE2358C1AD00FBFE72 /* FMVideoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMVideoHelper.m; sourceTree = "<group>"; };
+		9B6B21EB2358C2F100FBFE72 /* FMVideoRecordKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FMVideoRecordKit.podspec; path = ../FMVideoRecordKit.podspec; sourceTree = "<group>"; };
+		9B6B21EC2358C2F100FBFE72 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		9B6B21ED2358C2F100FBFE72 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9B6B219A2358C19400FBFE72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B6B21B52358C19500FBFE72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B6B21C02358C19500FBFE72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9B6B21942358C19400FBFE72 = {
+			isa = PBXGroup;
+			children = (
+				9B6B21EA2358C2AC00FBFE72 /* Podspec Metadata */,
+				9B6B21D52358C1AD00FBFE72 /* FMVideoRecordKit */,
+				9B6B219F2358C19400FBFE72 /* FMVideoRecordingDemo */,
+				9B6B21BB2358C19500FBFE72 /* FMVideoRecordingDemoTests */,
+				9B6B21C62358C19500FBFE72 /* FMVideoRecordingDemoUITests */,
+				9B6B219E2358C19400FBFE72 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9B6B219E2358C19400FBFE72 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B6B219D2358C19400FBFE72 /* FMVideoRecordingDemo.app */,
+				9B6B21B82358C19500FBFE72 /* FMVideoRecordingDemoTests.xctest */,
+				9B6B21C32358C19500FBFE72 /* FMVideoRecordingDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9B6B219F2358C19400FBFE72 /* FMVideoRecordingDemo */ = {
+			isa = PBXGroup;
+			children = (
+				9B6B21A02358C19400FBFE72 /* AppDelegate.h */,
+				9B6B21A12358C19400FBFE72 /* AppDelegate.m */,
+				9B6B21A32358C19400FBFE72 /* SceneDelegate.h */,
+				9B6B21A42358C19400FBFE72 /* SceneDelegate.m */,
+				9B6B21A62358C19400FBFE72 /* ViewController.h */,
+				9B6B21A72358C19400FBFE72 /* ViewController.m */,
+				9B6B21A92358C19400FBFE72 /* Main.storyboard */,
+				9B6B21AC2358C19500FBFE72 /* Assets.xcassets */,
+				9B6B21AE2358C19500FBFE72 /* LaunchScreen.storyboard */,
+				9B6B21B12358C19500FBFE72 /* Info.plist */,
+				9B6B21B22358C19500FBFE72 /* main.m */,
+			);
+			path = FMVideoRecordingDemo;
+			sourceTree = "<group>";
+		};
+		9B6B21BB2358C19500FBFE72 /* FMVideoRecordingDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				9B6B21BC2358C19500FBFE72 /* FMVideoRecordingDemoTests.m */,
+				9B6B21BE2358C19500FBFE72 /* Info.plist */,
+			);
+			path = FMVideoRecordingDemoTests;
+			sourceTree = "<group>";
+		};
+		9B6B21C62358C19500FBFE72 /* FMVideoRecordingDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9B6B21C72358C19500FBFE72 /* FMVideoRecordingDemoUITests.m */,
+				9B6B21C92358C19500FBFE72 /* Info.plist */,
+			);
+			path = FMVideoRecordingDemoUITests;
+			sourceTree = "<group>";
+		};
+		9B6B21D52358C1AD00FBFE72 /* FMVideoRecordKit */ = {
+			isa = PBXGroup;
+			children = (
+				9B6B21DD2358C1AD00FBFE72 /* FMVideoRecordKit.h */,
+				9B6B21D72358C1AD00FBFE72 /* FMVideoConstant.h */,
+				9B6B21DA2358C1AD00FBFE72 /* FMVideoConstant.m */,
+				9B6B21D92358C1AD00FBFE72 /* FMVideoHelper.h */,
+				9B6B21DE2358C1AD00FBFE72 /* FMVideoHelper.m */,
+				9B6B21D62358C1AD00FBFE72 /* FMVideoFileTool.h */,
+				9B6B21DB2358C1AD00FBFE72 /* FMVideoFileTool.m */,
+				9B6B21DC2358C1AD00FBFE72 /* FMVideoWriter.h */,
+				9B6B21D82358C1AD00FBFE72 /* FMVideoWriter.m */,
+			);
+			name = FMVideoRecordKit;
+			path = ../FMVideoRecordKit;
+			sourceTree = "<group>";
+		};
+		9B6B21EA2358C2AC00FBFE72 /* Podspec Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				9B6B21EB2358C2F100FBFE72 /* FMVideoRecordKit.podspec */,
+				9B6B21EC2358C2F100FBFE72 /* LICENSE */,
+				9B6B21ED2358C2F100FBFE72 /* README.md */,
+			);
+			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9B6B219C2358C19400FBFE72 /* FMVideoRecordingDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B6B21CC2358C19500FBFE72 /* Build configuration list for PBXNativeTarget "FMVideoRecordingDemo" */;
+			buildPhases = (
+				9B6B21992358C19400FBFE72 /* Sources */,
+				9B6B219A2358C19400FBFE72 /* Frameworks */,
+				9B6B219B2358C19400FBFE72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FMVideoRecordingDemo;
+			productName = FMVideoRecordingDemo;
+			productReference = 9B6B219D2358C19400FBFE72 /* FMVideoRecordingDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9B6B21B72358C19500FBFE72 /* FMVideoRecordingDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B6B21CF2358C19500FBFE72 /* Build configuration list for PBXNativeTarget "FMVideoRecordingDemoTests" */;
+			buildPhases = (
+				9B6B21B42358C19500FBFE72 /* Sources */,
+				9B6B21B52358C19500FBFE72 /* Frameworks */,
+				9B6B21B62358C19500FBFE72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B6B21BA2358C19500FBFE72 /* PBXTargetDependency */,
+			);
+			name = FMVideoRecordingDemoTests;
+			productName = FMVideoRecordingDemoTests;
+			productReference = 9B6B21B82358C19500FBFE72 /* FMVideoRecordingDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9B6B21C22358C19500FBFE72 /* FMVideoRecordingDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B6B21D22358C19500FBFE72 /* Build configuration list for PBXNativeTarget "FMVideoRecordingDemoUITests" */;
+			buildPhases = (
+				9B6B21BF2358C19500FBFE72 /* Sources */,
+				9B6B21C02358C19500FBFE72 /* Frameworks */,
+				9B6B21C12358C19500FBFE72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B6B21C52358C19500FBFE72 /* PBXTargetDependency */,
+			);
+			name = FMVideoRecordingDemoUITests;
+			productName = FMVideoRecordingDemoUITests;
+			productReference = 9B6B21C32358C19500FBFE72 /* FMVideoRecordingDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9B6B21952358C19400FBFE72 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = RICH;
+				TargetAttributes = {
+					9B6B219C2358C19400FBFE72 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					9B6B21B72358C19500FBFE72 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 9B6B219C2358C19400FBFE72;
+					};
+					9B6B21C22358C19500FBFE72 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 9B6B219C2358C19400FBFE72;
+					};
+				};
+			};
+			buildConfigurationList = 9B6B21982358C19400FBFE72 /* Build configuration list for PBXProject "FMVideoRecordingDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9B6B21942358C19400FBFE72;
+			productRefGroup = 9B6B219E2358C19400FBFE72 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9B6B219C2358C19400FBFE72 /* FMVideoRecordingDemo */,
+				9B6B21B72358C19500FBFE72 /* FMVideoRecordingDemoTests */,
+				9B6B21C22358C19500FBFE72 /* FMVideoRecordingDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9B6B219B2358C19400FBFE72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B6B21F02358C2F100FBFE72 /* README.md in Resources */,
+				9B6B21B02358C19500FBFE72 /* LaunchScreen.storyboard in Resources */,
+				9B6B21EE2358C2F100FBFE72 /* FMVideoRecordKit.podspec in Resources */,
+				9B6B21AD2358C19500FBFE72 /* Assets.xcassets in Resources */,
+				9B6B21AB2358C19400FBFE72 /* Main.storyboard in Resources */,
+				9B6B21EF2358C2F100FBFE72 /* LICENSE in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B6B21B62358C19500FBFE72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B6B21C12358C19500FBFE72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9B6B21992358C19400FBFE72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B6B21A82358C19400FBFE72 /* ViewController.m in Sources */,
+				9B6B21E12358C1AD00FBFE72 /* FMVideoFileTool.m in Sources */,
+				9B6B21DF2358C1AD00FBFE72 /* FMVideoWriter.m in Sources */,
+				9B6B21A22358C19400FBFE72 /* AppDelegate.m in Sources */,
+				9B6B21E22358C1AD00FBFE72 /* FMVideoHelper.m in Sources */,
+				9B6B21B32358C19500FBFE72 /* main.m in Sources */,
+				9B6B21E02358C1AD00FBFE72 /* FMVideoConstant.m in Sources */,
+				9B6B21A52358C19400FBFE72 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B6B21B42358C19500FBFE72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B6B21BD2358C19500FBFE72 /* FMVideoRecordingDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B6B21BF2358C19500FBFE72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B6B21C82358C19500FBFE72 /* FMVideoRecordingDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9B6B21BA2358C19500FBFE72 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B6B219C2358C19400FBFE72 /* FMVideoRecordingDemo */;
+			targetProxy = 9B6B21B92358C19500FBFE72 /* PBXContainerItemProxy */;
+		};
+		9B6B21C52358C19500FBFE72 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B6B219C2358C19400FBFE72 /* FMVideoRecordingDemo */;
+			targetProxy = 9B6B21C42358C19500FBFE72 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9B6B21A92358C19400FBFE72 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B6B21AA2358C19400FBFE72 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9B6B21AE2358C19500FBFE72 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B6B21AF2358C19500FBFE72 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9B6B21CA2358C19500FBFE72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9B6B21CB2358C19500FBFE72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9B6B21CD2358C19500FBFE72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JJ4L9RFS42;
+				INFOPLIST_FILE = FMVideoRecordingDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ifemo.FMVideoRecordingDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9B6B21CE2358C19500FBFE72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JJ4L9RFS42;
+				INFOPLIST_FILE = FMVideoRecordingDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ifemo.FMVideoRecordingDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9B6B21D02358C19500FBFE72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JJ4L9RFS42;
+				INFOPLIST_FILE = FMVideoRecordingDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ifemo.FMVideoRecordingDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FMVideoRecordingDemo.app/FMVideoRecordingDemo";
+			};
+			name = Debug;
+		};
+		9B6B21D12358C19500FBFE72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JJ4L9RFS42;
+				INFOPLIST_FILE = FMVideoRecordingDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ifemo.FMVideoRecordingDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FMVideoRecordingDemo.app/FMVideoRecordingDemo";
+			};
+			name = Release;
+		};
+		9B6B21D32358C19500FBFE72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JJ4L9RFS42;
+				INFOPLIST_FILE = FMVideoRecordingDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ifemo.FMVideoRecordingDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FMVideoRecordingDemo;
+			};
+			name = Debug;
+		};
+		9B6B21D42358C19500FBFE72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JJ4L9RFS42;
+				INFOPLIST_FILE = FMVideoRecordingDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ifemo.FMVideoRecordingDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FMVideoRecordingDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9B6B21982358C19400FBFE72 /* Build configuration list for PBXProject "FMVideoRecordingDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B6B21CA2358C19500FBFE72 /* Debug */,
+				9B6B21CB2358C19500FBFE72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B6B21CC2358C19500FBFE72 /* Build configuration list for PBXNativeTarget "FMVideoRecordingDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B6B21CD2358C19500FBFE72 /* Debug */,
+				9B6B21CE2358C19500FBFE72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B6B21CF2358C19500FBFE72 /* Build configuration list for PBXNativeTarget "FMVideoRecordingDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B6B21D02358C19500FBFE72 /* Debug */,
+				9B6B21D12358C19500FBFE72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B6B21D22358C19500FBFE72 /* Build configuration list for PBXNativeTarget "FMVideoRecordingDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B6B21D32358C19500FBFE72 /* Debug */,
+				9B6B21D42358C19500FBFE72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9B6B21952358C19400FBFE72 /* Project object */;
+}

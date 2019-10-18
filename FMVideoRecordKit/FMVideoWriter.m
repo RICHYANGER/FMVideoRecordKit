@@ -162,8 +162,6 @@
     if (!self.isWriting) {
         return;
     }
-//    CMFormatDescriptionRef formatDesc = CMSampleBufferGetFormatDescription(sampleBuffer);
-//    CMMediaType mediaType = CMFormatDescriptionGetMediaType(formatDesc);
     
     if (bufferType == RPSampleBufferTypeVideo) {
         
@@ -227,7 +225,11 @@
         [self.assetWriterVideoInput markAsFinished];
         [self.assetWriterAudioInput markAsFinished];
         [self.assetWriterMicrophoneInput markAsFinished];
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Wdeprecated"
+        //这里是弃用的属性
         [self.assetWriter finishWriting];
+        #pragma clang diagnostic pop
          *error = self.assetWriter.error;
     }
 }

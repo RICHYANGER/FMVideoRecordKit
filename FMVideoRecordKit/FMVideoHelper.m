@@ -46,11 +46,25 @@
                                                  };
 
     }
-    return @{AVVideoCodecKey : AVVideoCodecTypeH264,
-             AVVideoScalingModeKey : AVVideoScalingModeResizeAspectFill,
-             AVVideoWidthKey : @(size.width),
-             AVVideoHeightKey : @(size.height),
-             AVVideoCompressionPropertiesKey : compressionProperties};
+    if (@available(iOS 11.0, *)) {
+        return @{AVVideoCodecKey : AVVideoCodecTypeH264,
+                 AVVideoScalingModeKey : AVVideoScalingModeResizeAspectFill,
+                 AVVideoWidthKey : @(size.width),
+                 AVVideoHeightKey : @(size.height),
+                 AVVideoCompressionPropertiesKey : compressionProperties};
+    } else {
+        // Fallback on earlier versions
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        return @{AVVideoCodecKey : AVVideoCodecH264,
+                 AVVideoScalingModeKey : AVVideoScalingModeResizeAspectFill,
+                 AVVideoWidthKey : @(size.width),
+                 AVVideoHeightKey : @(size.height),
+                 AVVideoCompressionPropertiesKey : compressionProperties
+                 
+                };
+        #pragma clang diagnostic pop
+    }
 }
 
 + (NSDictionary *)getAudioOutputSettings{
