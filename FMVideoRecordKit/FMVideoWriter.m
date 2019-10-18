@@ -24,6 +24,8 @@
 @property (nonatomic, strong) NSDictionary *audioSettings;
 @property (nonatomic, assign) FMVideoRecordOrientation deviceOrientation;
 @property (nonatomic) BOOL firstSample;
+@property (nonatomic, assign) BOOL isWriting;
+
 @property (nonatomic, copy) NSString *videoTempPath; // 临时共享目录
 
 @end
@@ -42,6 +44,9 @@
         _dispatchQueue = dispatchQueue;
         _deviceOrientation = orientation;
         _videoTempPath = outputPath;
+        
+        _recordAudioMic = YES;
+        _recordVideoSound = YES;
     }
     return self;
 }
@@ -58,10 +63,12 @@
         _dispatchQueue = dispatchQueue;
         _deviceOrientation = orientation;
         _videoTempPath = outputPath;
+        
+        _recordAudioMic = YES;
+        _recordVideoSound = YES;
     }
     return self;
 }
-
 
 - (void)startWritingWithError:(NSError *__autoreleasing *)error {
     
@@ -201,7 +208,7 @@
 
             }
         }
-    }else if (!self.firstSample && bufferType == RPSampleBufferTypeAudioMic) {
+    }else if (!self.firstSample && bufferType == RPSampleBufferTypeAudioMic && self.recordAudioMic) {
         
         if (self.assetWriterMicrophoneInput.isReadyForMoreMediaData) {
             // 直接将音频通过默认参数写入到 mp4 中去
@@ -211,7 +218,7 @@
             }
             NSLog(@"write micphone Buffer");
         }
-    }else if (!self.firstSample && bufferType == RPSampleBufferTypeAudioApp) {
+    }else if (!self.firstSample && bufferType == RPSampleBufferTypeAudioApp && self.recordVideoSound) {
         
         if (self.assetWriterAudioInput.isReadyForMoreMediaData) {
             // 直接将音频通过默认参数写入到 mp4 中去
@@ -234,7 +241,7 @@
         [self.assetWriterMicrophoneInput markAsFinished];
         #pragma clang diagnostic push
         #pragma clang diagnostic ignored "-Wdeprecated"
-        //这里是弃用的属性
+        //这里是弃用的方法
         [self.assetWriter finishWriting];
         #pragma clang diagnostic pop
          *error = self.assetWriter.error;

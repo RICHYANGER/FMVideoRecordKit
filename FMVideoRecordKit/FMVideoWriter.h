@@ -21,7 +21,12 @@
 @interface FMVideoWriter : NSObject
 
 @property (weak, nonatomic) id<videoWriterDelegate> delegate;
-@property (nonatomic, assign) BOOL isWriting;
+/**  是否正在写入数据 */
+@property (nonatomic, assign, readonly) BOOL isWriting;
+/** 是否录制扬声器音频 ,默认YES, iOS11以后有效 */
+@property (nonatomic, assign) BOOL recordAudioMic;
+/** 是否录制视频音频 ,默认YES,  iOS11以后有效 */
+@property (nonatomic, assign) BOOL recordVideoSound;
 
 // 初始化方法
 // @param dispatchQueue 串行队列
