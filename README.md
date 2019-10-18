@@ -72,7 +72,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 -  (FMVideoWriter *)assetVideoWriter {
     if (!_assetVideoWriter) {
         _assetVideoWriter = [[FMVideoWriter alloc] initWithDispatchQueue:dispatch_queue_create("com.feimo.ReplayKit.VideoWriteQueue", DISPATCH_QUEUE_SERIAL)
-                                                           VideoDefition:FMVideoRecordSuperDefinition RecordVideoOrientation:FMVideoRecordPortraitOrientation
+                                                           VideoDefition:FMVideoRecordSuperDefinition
+                                                  RecordVideoOrientation:FMVideoRecordPortraitOrientation
                                                               OutputPath:[FMVideoHelper getAppGroupFilePath]];
     }
     return _assetVideoWriter;
