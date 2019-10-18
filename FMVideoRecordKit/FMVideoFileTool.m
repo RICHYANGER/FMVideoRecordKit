@@ -92,7 +92,7 @@
 
 // 将视频存入固定相册文件夹
 + (void)saveVideo:(NSURL *)videoUrl toMyAlbumcompletionHandler:(void (^)(BOOL))completionHandler {
-    [self saveVideo:videoUrl toAlbumName:FMALBUM completionHandler:completionHandler];
+    [self saveVideo:videoUrl toAlbumName:nil completionHandler:completionHandler];
 }
 
 // 将视频存入指定相册文件夹
@@ -131,31 +131,49 @@
         }];
     } completionHandler:^(BOOL success, NSError * _Nullable error) {
         if (success) {
-            [self saveImagesWithIdentifierArr:identifierArr toAlbumName:albumName];
+            [self saveImagesWithIdentifierArr:identifierArr toAlbumName:albumName completionHandler:completionHandler];
         }
     }];
 }
 
-+ (void)saveImagesWithIdentifierArr:(NSArray <NSString*>*)identifierArr toAlbumName:(nullable NSString *)albumName
++ (void)saveImagesWithIdentifierArr:(NSArray <NSString*>*)identifierArr toAlbumName:(nullable NSString *)albumName completionHandler:(void (^)(BOOL))completionHandler
 {
     if (identifierArr.count == 0) {
         return;
     }
     if (!albumName) {
-        return;
-    }
-    PHAssetCollection *collection = nil;
-    if (albumName && albumName.length > 0) {
-        collection = [self createPhotoWithAlbumName:albumName];
-    }
-    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-        PHFetchResult *assets = [PHAsset fetchAssetsWithLocalIdentifiers:identifierArr options:nil];
-        [PHAssetCollectionChangeRequest changeRequestForAssetCollection:collection assets:assets];
-    } completionHandler:^(BOOL success, NSError * _Nullable error) {
-        if (success) {
-            NSLog(@"图片存入相册成功");
+        NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+        
+        albumName = [infoDictionary objectForKey:@"CFBundleName"];
+        if (albumName == nil){
+            albumName = FMALBUM;
         }
-    }];
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSError *error = nil;
+        PHAssetCollection *collection = nil;
+        if (albumName && albumName.length > 0) {
+            collection = [self createPhotoWithAlbumName:albumName];
+        }
+            
+        [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+            
+            PHAsset *asset = [[PHAsset fetchAssetsWithLocalIdentifiers:identifierArr options:nil] lastObject];
+            [[PHAssetCollectionChangeRequest changeRequestForAssetCollection:collection] addAssets:@[asset]];
+        } error:&error];
+        NSLog(@"error :%@", error);
+        
+        if (completionHandler) {
+            if (error) {
+                NSLog(@"保存图片失败!");
+                completionHandler(NO);
+            }else {
+                NSLog(@"保存图片成功!");
+                completionHandler(YES);
+            }
+        }
+    });
 }
 
 
@@ -193,25 +211,39 @@
         return;
     }
     if (!albumName) {
-        return;
-    }
-    
-    PHAssetCollection *collection = nil;
-    if (albumName && albumName.length > 0) {
-        collection = [self createPhotoWithAlbumName:albumName];
-    }
-    
-    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-       
-        PHAsset *asset = [PHAsset fetchAssetsWithLocalIdentifiers:@[localIdentifier] options:nil].lastObject;
-        [[PHAssetCollectionChangeRequest changeRequestForAssetCollection:collection] addAssets:@[asset]];
+        NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
         
-    } completionHandler:^(BOOL success, NSError * _Nullable error) {
-        
-        if (success) {
-            NSLog(@"视频存入相册成功");
+        albumName = [infoDictionary objectForKey:@"CFBundleName"];
+        if (albumName == nil){
+            albumName = FMALBUM;
         }
-    }];
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSError *error = nil;
+        PHAssetCollection *collection = nil;
+        if (albumName && albumName.length > 0) {
+            collection = [self createPhotoWithAlbumName:albumName];
+        }
+            
+        [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+            
+            PHAsset *asset = [[PHAsset fetchAssetsWithLocalIdentifiers:@[localIdentifier] options:nil] lastObject];
+            [[PHAssetCollectionChangeRequest changeRequestForAssetCollection:collection] addAssets:@[asset]];
+            
+        } error:&error];
+        NSLog(@"error :%@", error);
+        
+        if (completionHandler) {
+            if (error) {
+                NSLog(@"保存视频失败!");
+                completionHandler(NO);
+            }else {
+                NSLog(@"保存视频成功!");
+                completionHandler(YES);
+            }
+        }
+    });
 }
 
 @end
