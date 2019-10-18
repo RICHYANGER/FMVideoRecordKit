@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSDictionary *)getVideoOutputSettingsWithVideoDefinition:(FMVideoRecordDefinition)definition;
 + (NSDictionary *)getAudioOutputSettings;
 
++ (NSString *)getAppGroupFilePath;
+
 @end
 
 NS_ASSUME_NONNULL_END

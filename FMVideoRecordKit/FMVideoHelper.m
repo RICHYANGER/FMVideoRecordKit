@@ -67,12 +67,29 @@
     }
 }
 
-+ (NSDictionary *)getAudioOutputSettings{
++ (NSDictionary *)getAudioOutputSettings {
    return @{
             AVSampleRateKey : @(44100),
             AVFormatIDKey : @(kAudioFormatMPEG4AAC_HE),
             AVNumberOfChannelsKey : @(1)
             };
+}
+
+// AppGroup共享目录文件路径
++ (NSString *)getAppGroupFilePath {
+
+    NSString *path = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:FMGroupIdentifier].path;
+    NSString *fullPathWrite  = [path stringByAppendingPathComponent:FMGroupDirName];
+
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:fullPathWrite]) {
+       [fileManager createDirectoryAtPath:fullPathWrite withIntermediateDirectories:NO attributes:nil error:nil];
+    }
+    NSString *appGroupFilePath = [fullPathWrite stringByAppendingPathComponent:FMRepKitFileName];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:appGroupFilePath]) {
+        [[NSFileManager defaultManager] removeItemAtPath:appGroupFilePath error:nil];
+    }
+    return appGroupFilePath;
 }
 
 @end

@@ -15,7 +15,6 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 * #import "FMVideoRecordKit.h" 即可使用
 
 ```objc
-/** 按钮事件 */
 - (void)broadcastStartedWithSetupInfo:(NSDictionary<NSString *,NSObject *> *)setupInfo {
     // User has requested to start the broadcast. Setup info from the UI extension can be supplied but optional.
     NSLog(@"%s", __func__);
@@ -46,7 +45,6 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 }
 
 - (void)processSampleBuffer:(CMSampleBufferRef)sampleBuffer withType:(RPSampleBufferType)sampleBufferType {
-
     NSError *error = nil;
     [self.assetVideoWriter writeVideoBuffer:sampleBuffer bufferType:sampleBufferType error:&error];
         switch (sampleBufferType) {
@@ -73,10 +71,9 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 -  (FMVideoWriter *)assetVideoWriter {
     if (!_assetVideoWriter) {
-        
-        _assetVideoWriter = [[FMVideoWriter alloc] initWithdispatchQueue:dispatch_queue_create("com.feimo.ReplayKit.VideoWriteQueue", DISPATCH_QUEUE_SERIAL)
-                                                           VideoDefition:FMVideoRecordSuperDefinition
-                                                  RecordVideoOrientation:FMVideoRecordPortraitOrientation];
+        _assetVideoWriter = [[FMVideoWriter alloc] initWithDispatchQueue:dispatch_queue_create("com.feimo.ReplayKit.VideoWriteQueue", DISPATCH_QUEUE_SERIAL)
+                                                           VideoDefition:FMVideoRecordSuperDefinition RecordVideoOrientation:FMVideoRecordPortraitOrientation
+                                                              OutputPath:[FMVideoHelper getAppGroupFilePath]];
     }
     return _assetVideoWriter;
 }

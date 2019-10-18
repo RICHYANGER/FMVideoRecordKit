@@ -23,28 +23,35 @@
 @property (weak, nonatomic) id<videoWriterDelegate> delegate;
 @property (nonatomic, assign) BOOL isWriting;
 
-
 // 初始化方法
+// @param dispatchQueue 串行队列
 // @param videoSettings 视频参数
 // @param audioSettings 音频参数
-// @param dispatchQueue 异步队列
-// @param orientation 设备方向
-- (id)initWithDispatchQueue:(dispatch_queue_t)dispatchQueue VideoSettings:(NSDictionary *)videoSettings audioSettings:(NSDictionary *)audioSettings  RecordVideoOrientation:(FMVideoRecordOrientation)orientation;
+// @param orientation 录制视频方向
+- (id)initWithDispatchQueue:(dispatch_queue_t)dispatchQueue
+              VideoSettings:(NSDictionary *)videoSettings
+              audioSettings:(NSDictionary *)audioSettings
+     RecordVideoOrientation:(FMVideoRecordOrientation)orientation
+                 OutputPath:(NSString *)outputPath;
 
-- (id)initWithDispatchQueue:(dispatch_queue_t)dispatchQueue VideoDefition:(FMVideoRecordDefinition)defition  RecordVideoOrientation:(FMVideoRecordOrientation)orientation;
+// 初始化方法
+// @param dispatchQueue 串行队列
+// @param defition 视频清晰度
+// @param orientation 录制视频方向
+// @param outputPath 视频输出路径
+- (id)initWithDispatchQueue:(dispatch_queue_t)dispatchQueue
+              VideoDefition:(FMVideoRecordDefinition)defition
+     RecordVideoOrientation:(FMVideoRecordOrientation)orientation
+                 OutputPath:(NSString *)outputPath;;
 
 // 开启录屏数据写入
-// @param error <#error description#>
 - (void)startWritingWithError:(NSError **)error;
 
 // 停止录屏数据写入
-// @param error <#error description#>
 - (void)stopWritingWithError:(NSError **)error;
 
 // 将录屏数据写入文件
 // @param sampleBuffer 录屏buffer
-// @param bufferType <#bufferType description#>
-// @param error <#error description#>
 - (void)writeVideoBuffer:(CMSampleBufferRef)sampleBuffer bufferType:(RPSampleBufferType)bufferType error:(NSError **)error API_AVAILABLE(ios(10.0)) API_AVAILABLE(ios(10.0));;
 
 @end

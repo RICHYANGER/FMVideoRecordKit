@@ -24,8 +24,7 @@
 @property (nonatomic, strong) NSDictionary *audioSettings;
 @property (nonatomic, assign) FMVideoRecordOrientation deviceOrientation;
 @property (nonatomic) BOOL firstSample;
-
-@property (nonatomic, copy) NSString *videoTempPath;
+@property (nonatomic, copy) NSString *videoTempPath; // 临时共享目录
 
 @end
 
@@ -34,18 +33,23 @@
 - (id)initWithDispatchQueue:(dispatch_queue_t)dispatchQueue
               VideoSettings:(NSDictionary *)videoSettings
               audioSettings:(NSDictionary *)audioSettings
-     RecordVideoOrientation:(FMVideoRecordOrientation)orientation {
+     RecordVideoOrientation:(FMVideoRecordOrientation)orientation
+                 OutputPath:(NSString *)outputPath{
     self = [super init];
     if (self) {
         _videoSettings = videoSettings;
         _audioSettings = audioSettings;
         _dispatchQueue = dispatchQueue;
         _deviceOrientation = orientation;
+        _videoTempPath = outputPath;
     }
     return self;
 }
 
-- (id)initWithDispatchQueue:(dispatch_queue_t)dispatchQueue VideoDefition:(FMVideoRecordDefinition)defition RecordVideoOrientation:(FMVideoRecordOrientation)orientation
+- (id)initWithDispatchQueue:(dispatch_queue_t)dispatchQueue
+              VideoDefition:(FMVideoRecordDefinition)defition
+     RecordVideoOrientation:(FMVideoRecordOrientation)orientation
+                 OutputPath:(NSString *)outputPath
 {
     self = [super init];
     if (self) {
@@ -53,6 +57,7 @@
         _audioSettings = [FMVideoHelper getAudioOutputSettings];
         _dispatchQueue = dispatchQueue;
         _deviceOrientation = orientation;
+        _videoTempPath = outputPath;
     }
     return self;
 }
@@ -63,8 +68,10 @@
     dispatch_async(self.dispatchQueue, ^{
         
         self.assetWriter = [AVAssetWriter assetWriterWithURL:({
-            
-            // 录制 缓存地址。
+            if ([[NSFileManager defaultManager] fileExistsAtPath:self.videoTempPath]) {
+                [[NSFileManager defaultManager] removeItemAtPath:self.videoTempPath error:nil];
+            }
+            // 录制缓存地址
             NSURL *url = [NSURL fileURLWithPath:self.videoTempPath];
             if ([[NSFileManager defaultManager] fileExistsAtPath:url.path]) {
                 [[NSFileManager defaultManager] removeItemAtURL:url error:nil];
@@ -231,26 +238,11 @@
         [self.assetWriter finishWriting];
         #pragma clang diagnostic pop
          *error = self.assetWriter.error;
+        if (self.delegate && [self.delegate respondsToSelector:@selector(videoWriter:didOutputVideoAtPath:)]) {
+            [self.delegate videoWriter:self didOutputVideoAtPath:[NSURL fileURLWithPath:self.videoTempPath]];
+        }
     }
 }
 
-- (NSString *)videoTempPath
-{
-    if (!_videoTempPath) {
-        
-        NSString *path = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:FMGroupIdentifier].path;
-        NSString *fullPathWrite  = [path stringByAppendingPathComponent:FMGroupDirName];
-        
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-       if (![fileManager fileExistsAtPath:fullPathWrite]) {
-           [fileManager createDirectoryAtPath:fullPathWrite withIntermediateDirectories:NO attributes:nil error:nil];
-       }
-        _videoTempPath = [fullPathWrite stringByAppendingPathComponent:FMRepKitFileName];
-        if ([[NSFileManager defaultManager] fileExistsAtPath:_videoTempPath]) {
-            [[NSFileManager defaultManager] removeItemAtPath:_videoTempPath error:nil];
-        }
-    }
-    return _videoTempPath;
-}
 
 @end
