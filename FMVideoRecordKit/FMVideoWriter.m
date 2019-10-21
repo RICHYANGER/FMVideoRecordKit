@@ -73,20 +73,13 @@
 - (void)startWritingWithError:(NSError *__autoreleasing *)error {
     
     dispatch_async(self.dispatchQueue, ^{
-        
-        self.assetWriter = [AVAssetWriter assetWriterWithURL:({
-            if ([[NSFileManager defaultManager] fileExistsAtPath:self.videoTempPath]) {
-                [[NSFileManager defaultManager] removeItemAtPath:self.videoTempPath error:nil];
-            }
-            // 录制缓存地址
-            NSURL *url = [NSURL fileURLWithPath:self.videoTempPath];
-            if ([[NSFileManager defaultManager] fileExistsAtPath:url.path]) {
-                [[NSFileManager defaultManager] removeItemAtURL:url error:nil];
-            }
-            url;
-            
-        }) fileType:AVFileTypeMPEG4 error:error];
 
+        // 录制缓存地址
+        NSURL *url = [NSURL fileURLWithPath:self.videoTempPath];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:url.path]) {
+            [[NSFileManager defaultManager] removeItemAtURL:url error:nil];
+        }
+        self.assetWriter = [AVAssetWriter assetWriterWithURL:url fileType:AVFileTypeMPEG4 error:error];
         
         if (!self.assetWriter || *error) {
 
@@ -153,81 +146,68 @@
             return;
         }
         
-        CGSize size = [UIScreen mainScreen].bounds.size;
-        size = CGSizeMake(size.width * 2,size.height * 2);
-        // 视频输出添加到写入适配器中
-        self.assetWriterInputPixelBufferAdaptor = [[AVAssetWriterInputPixelBufferAdaptor alloc] initWithAssetWriterInput:self.assetWriterVideoInput sourcePixelBufferAttributes:({
-            // 截取参数
-            @{
-              (id)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange),
-              // kCVPixelFormatType_420YpCbCr8BiPlanarFullRange kCVPixelFormatType_32BGRA
-              (id)kCVPixelBufferWidthKey : @(size.width),
-              (id)kCVPixelBufferHeightKey : @(size.height),
-              (id)kCVPixelFormatOpenGLESCompatibility : (id)kCFBooleanTrue
-              };
-        })];
-        
-        self.isWriting = YES;
-        self.firstSample = YES;
+        self.isWriting = NO;
     });
 }
 
-- (void)writeVideoBuffer:(CMSampleBufferRef)sampleBuffer bufferType:(RPSampleBufferType)bufferType error:(NSError *__autoreleasing *)error{
-    if (!self.isWriting) {
-        return;
-    }
-    
-    if (bufferType == RPSampleBufferTypeVideo) {
-        
-        CMTime timestamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
-        
-        if (self.firstSample) {                                             // 2
-            if ([self.assetWriter startWriting]) {
-                [self.assetWriter startSessionAtSourceTime:timestamp];
+- (void)writeVideoBuffer:(CMSampleBufferRef)sampleBuffer bufferType:(RPSampleBufferType)bufferType error:(NSError *__autoreleasing *)error
+API_AVAILABLE(ios(10.0)){
+    @autoreleasepool {
+        CFRetain(sampleBuffer);
+        dispatch_async(_dispatchQueue, ^{
+            @synchronized(self) {
+            if (!CMSampleBufferDataIsReady(sampleBuffer)) {
+                CFRelease(sampleBuffer);
+                return;
+            }
+            
+            if (self.assetWriter.status == AVAssetWriterStatusUnknown && !self.isWriting) {
+                [self.assetWriter startWriting];
+                [self.assetWriter startSessionAtSourceTime:CMSampleBufferGetPresentationTimeStamp(sampleBuffer)];
+                self.isWriting = YES;
                  NSLog(@"屏幕录制开启session 视频处");
-            } else {
-                
-                *error = FMVideoRecoderError(@"Failed to start writing.",FMVideoRecoderErrorFailedToStartwriting);
             }
-            self.firstSample = NO;
-        }
+            if (self.assetWriter.status == AVAssetWriterStatusFailed) {
+                NSLog(@"屏幕录制AVAssetWriterStatusFailed error :%@", self.assetWriter.error);
+                CFRelease(sampleBuffer);
+                return;
+            }
+            if (self.assetWriter.status == AVAssetWriterStatusCompleted) {
+                NSLog(@"屏幕录制AVAssetWriterStatus Completed");
+            }
+            
+            if (bufferType == RPSampleBufferTypeVideo) {
+                if ([self.assetWriterVideoInput isReadyForMoreMediaData]) {
+                    if (![self.assetWriterVideoInput appendSampleBuffer:sampleBuffer]) {
+                          *error = FMVideoRecoderError(@"Failed to Appending Video Buffer", FMVideoRecoderErrorFailedToAppendVideoBuffer);
 
-        CVPixelBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
-        
-        /**
-            ======= 在这里可以利用 fiter 把 imageBuffer 处理后写入文件中
-         */
-//        if (![self.assetWriterVideoInput appendSampleBuffer:sampleBuffer]) {
-//             *error = FMVideoRecoderError(@"Failed to Appending Video Buffer", FMVideoRecoderErrorFailedToAppendVideoBuffer);
-//        }
-        if (self.assetWriterVideoInput.readyForMoreMediaData) {
-            // assetWriterInputPixelBufferAdaptor 应该是 从 imageBuffer 截取某一部分画面 然后再加入到 assetWriterVideoInput 中去
-            if (![self.assetWriterInputPixelBufferAdaptor appendPixelBuffer:imageBuffer withPresentationTime:timestamp]) {
-
-                *error = FMVideoRecoderError(@"Failed to Appending Video Buffer", FMVideoRecoderErrorFailedToAppendVideoBuffer);
-
+                    }
+                    NSLog(@"write video Buffer");
+                 }
+            }else if (bufferType == RPSampleBufferTypeAudioMic) {
+                    
+                if (self.isWriting && [self.assetWriterMicrophoneInput isReadyForMoreMediaData]  && self.recordAudioMic) {
+                    // 直接将音频通过默认参数写入到 mp4 中去
+                    if (![self.assetWriterMicrophoneInput appendSampleBuffer:sampleBuffer]) {
+                        
+                        *error = FMVideoRecoderError(@"Failed to Appending audio Buffer", FMVideoRecoderErrorFailedToAppendAudioBuffer);
+                    }
+                    NSLog(@"write micphone Buffer");
+                }
+            }else if (bufferType == RPSampleBufferTypeAudioApp) {
+                    
+                if (self.isWriting && [self.assetWriterAudioInput isReadyForMoreMediaData] && self.recordVideoSound) {
+                    // 直接将音频通过默认参数写入到 mp4 中去
+                    if (![self.assetWriterAudioInput appendSampleBuffer:sampleBuffer]) {
+                        
+                        *error = FMVideoRecoderError(@"Failed to Appending audio Buffer", FMVideoRecoderErrorFailedToAppendAudioBuffer);
+                    }
+                    NSLog(@"write audio Buffer");
+                }
             }
-        }
-    }else if (!self.firstSample && bufferType == RPSampleBufferTypeAudioMic && self.recordAudioMic) {
-        
-        if (self.assetWriterMicrophoneInput.isReadyForMoreMediaData) {
-            // 直接将音频通过默认参数写入到 mp4 中去
-            if (![self.assetWriterMicrophoneInput appendSampleBuffer:sampleBuffer]) {
-                
-                *error = FMVideoRecoderError(@"Failed to Appending audio Buffer", FMVideoRecoderErrorFailedToAppendAudioBuffer);
+            CFRelease(sampleBuffer);
             }
-            NSLog(@"write micphone Buffer");
-        }
-    }else if (!self.firstSample && bufferType == RPSampleBufferTypeAudioApp && self.recordVideoSound) {
-        
-        if (self.assetWriterAudioInput.isReadyForMoreMediaData) {
-            // 直接将音频通过默认参数写入到 mp4 中去
-            if (![self.assetWriterAudioInput appendSampleBuffer:sampleBuffer]) {
-                
-                *error = FMVideoRecoderError(@"Failed to Appending audio Buffer", FMVideoRecoderErrorFailedToAppendAudioBuffer);
-            }
-            NSLog(@"write audio Buffer");
-        }
+        });
     }
 }
 

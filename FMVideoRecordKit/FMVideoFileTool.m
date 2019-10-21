@@ -184,7 +184,7 @@
     //从已经存在的相簿中查找应用对应的相册
     PHFetchResult <PHAssetCollection *> *assetCollectioins = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
     for (PHAssetCollection *collection in assetCollectioins) {
-        if ([collection.localIdentifier isEqualToString:albumName]) {
+        if ([collection.localizedTitle isEqualToString:albumName]) {
             return collection;
         }
     }
