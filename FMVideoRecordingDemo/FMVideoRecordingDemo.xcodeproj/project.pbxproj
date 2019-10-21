@@ -23,6 +23,7 @@
 		9B6B21EE2358C2F100FBFE72 /* FMVideoRecordKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B21EB2358C2F100FBFE72 /* FMVideoRecordKit.podspec */; };
 		9B6B21EF2358C2F100FBFE72 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B21EC2358C2F100FBFE72 /* LICENSE */; };
 		9B6B21F02358C2F100FBFE72 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B21ED2358C2F100FBFE72 /* README.md */; };
+		F145FECFBA264E18DFDD6445 /* Pods_FMVideoRecordingDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DF9AA2A24691D1714628AB /* Pods_FMVideoRecordingDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		223DA155BF103B94FF4F2031 /* Pods-FMVideoRecordingDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMVideoRecordingDemo.release.xcconfig"; path = "Target Support Files/Pods-FMVideoRecordingDemo/Pods-FMVideoRecordingDemo.release.xcconfig"; sourceTree = "<group>"; };
+		89DF9AA2A24691D1714628AB /* Pods_FMVideoRecordingDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FMVideoRecordingDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B6B219D2358C19400FBFE72 /* FMVideoRecordingDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FMVideoRecordingDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B6B21A02358C19400FBFE72 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9B6B21A12358C19400FBFE72 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 		9B6B21EB2358C2F100FBFE72 /* FMVideoRecordKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FMVideoRecordKit.podspec; path = ../FMVideoRecordKit.podspec; sourceTree = "<group>"; };
 		9B6B21EC2358C2F100FBFE72 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		9B6B21ED2358C2F100FBFE72 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		C09881AE9C55032862A009E9 /* Pods-FMVideoRecordingDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMVideoRecordingDemo.debug.xcconfig"; path = "Target Support Files/Pods-FMVideoRecordingDemo/Pods-FMVideoRecordingDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F145FECFBA264E18DFDD6445 /* Pods_FMVideoRecordingDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +105,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25D497747525FD89D577C8B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C09881AE9C55032862A009E9 /* Pods-FMVideoRecordingDemo.debug.xcconfig */,
+				223DA155BF103B94FF4F2031 /* Pods-FMVideoRecordingDemo.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		321442C0F1E0017DB5B42D94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89DF9AA2A24691D1714628AB /* Pods_FMVideoRecordingDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9B6B21942358C19400FBFE72 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +132,8 @@
 				9B6B21BB2358C19500FBFE72 /* FMVideoRecordingDemoTests */,
 				9B6B21C62358C19500FBFE72 /* FMVideoRecordingDemoUITests */,
 				9B6B219E2358C19400FBFE72 /* Products */,
+				25D497747525FD89D577C8B4 /* Pods */,
+				321442C0F1E0017DB5B42D94 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,9 +217,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B6B21CC2358C19500FBFE72 /* Build configuration list for PBXNativeTarget "FMVideoRecordingDemo" */;
 			buildPhases = (
+				6203D21F45F5DC72E1EC43B1 /* [CP] Check Pods Manifest.lock */,
 				9B6B21992358C19400FBFE72 /* Sources */,
 				9B6B219A2358C19400FBFE72 /* Frameworks */,
 				9B6B219B2358C19400FBFE72 /* Resources */,
+				4A3AD54E8DDC391E8E697EEA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -312,6 +339,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4A3AD54E8DDC391E8E697EEA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FMVideoRecordingDemo/Pods-FMVideoRecordingDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FMVideoRecordingDemo/Pods-FMVideoRecordingDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FMVideoRecordingDemo/Pods-FMVideoRecordingDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6203D21F45F5DC72E1EC43B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FMVideoRecordingDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9B6B21992358C19400FBFE72 /* Sources */ = {
@@ -492,6 +561,7 @@
 		};
 		9B6B21CD2358C19500FBFE72 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C09881AE9C55032862A009E9 /* Pods-FMVideoRecordingDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -509,6 +579,7 @@
 		};
 		9B6B21CE2358C19500FBFE72 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 223DA155BF103B94FF4F2031 /* Pods-FMVideoRecordingDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

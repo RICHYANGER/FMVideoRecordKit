@@ -1,0 +1,6 @@
+framework module Pods_FMVideoRecordingDemo {
+  umbrella header "Pods-FMVideoRecordingDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}

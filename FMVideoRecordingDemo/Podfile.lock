@@ -1,0 +1,16 @@
+PODS:
+  - FMVideoRecordKit (0.1.2)
+
+DEPENDENCIES:
+  - FMVideoRecordKit
+
+SPEC REPOS:
+  trunk:
+    - FMVideoRecordKit
+
+SPEC CHECKSUMS:
+  FMVideoRecordKit: 119e7f9fd99b223d6fcbab00b0c51508a8d21286
+
+PODFILE CHECKSUM: ee45bfe3889db2167a96328044b29185a2488d58
+
+COCOAPODS: 1.8.4

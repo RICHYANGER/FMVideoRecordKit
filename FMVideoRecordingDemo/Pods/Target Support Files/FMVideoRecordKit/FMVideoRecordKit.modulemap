@@ -1,0 +1,6 @@
+framework module FMVideoRecordKit {
+  umbrella header "FMVideoRecordKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
