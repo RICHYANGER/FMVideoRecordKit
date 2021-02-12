@@ -11,6 +11,12 @@ let package = Package(
         .library(name: "FMVideoRecordKit", type: .dynamic, targets: ["FMVideoRecordKit"])        
     ],
     targets: [
-        .target(name: "FMVideoRecordKit", path:"FMVideoRecordKit", publicHeadersPath:"FMVideoRecordKit", exclude: ["FMVideoRecordingDemo ","README.md"])
+        .target(
+            name: "FMVideoRecordKit", 
+            path: "FMVideoRecordKit", 
+            exclude: ["FMVideoRecordingDemo ","README.md"],
+            sources: ["."],
+            publicHeadersPath: "."            
+        )
     ]
 )
