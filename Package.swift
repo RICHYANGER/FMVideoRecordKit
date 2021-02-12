@@ -10,7 +10,6 @@ let package = Package(
     products: [
         .library(name: "FMVideoRecordKit", targets: ["FMVideoRecordKit"])        
     ],
-    dependencies: [],
     targets: [
         .target(name: "FMVideoRecordKit", path:"FMVideoRecordKit", exclude: ["README.md"], resources: [])
     ]
