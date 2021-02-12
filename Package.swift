@@ -12,6 +12,6 @@ let package = Package(
     ],
     dependencies: [],
     targets: [
-        .target(name: "FMVideoRecordKit", , path:"FMVideoRecordKit", exclude: ["README.md"], resources: [])
+        .target(name: "FMVideoRecordKit", path:"FMVideoRecordKit", exclude: ["README.md"], resources: [])
     ]
 )
