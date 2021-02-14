@@ -66,7 +66,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 - (void)finishBroadcastWithError:(NSError *)error {
     NSLog(@"%s", __func__);
-    NSLog(@"结束录制 error:%@", error);
+    NSLog(@"End recording error:%@", error);
 }
 
 -  (FMVideoWriter *)assetVideoWriter {

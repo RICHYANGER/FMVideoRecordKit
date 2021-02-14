@@ -9,11 +9,10 @@
 #import "FMVideoHelper.h"
 
 @implementation FMVideoHelper
-
-//              标清                      高清                        超高清
-//              比特率：12 * 100 * 1000    20 * 100 * 1000 * 1.5      25 * 100 * 1000 * 1.5
-//              分辨率：     432*768             720*1280                   720*1280
-//              帧率  ：      15                    25                         25
+//              SD                        HD                         Ultra HD
+//         Bit rate：   12 * 100 * 1000   20 * 100 * 1000 * 1.5      25 * 100 * 1000 * 1.5
+//       Resolution：     432*768           720*1280                   720*1280
+//       Frame rate:         15                25                           25
 //   ProfileLevelKey ：  Main Level 3         Main Level 3.1             Main Level 4.1
 + (NSDictionary *)getVideoOutputSettingsWithVideoDefinition:(FMVideoRecordDefinition)definition {
     
@@ -22,7 +21,7 @@
     
     NSDictionary *compressionProperties;
     if (definition == FMVideoRecordStandardDefinition) {
-        // 标清
+        // Standard definition
         compressionProperties = @{ AVVideoAverageBitRateKey : @(12 * 100 * 1000),
                                                  AVVideoExpectedSourceFrameRateKey : @(15),
                                                  AVVideoMaxKeyFrameIntervalKey : @(15),
@@ -31,14 +30,14 @@
 
 
     }else if (definition == FMVideoRecordHighDefinition) {
-        // 高清
+        // HD
         compressionProperties = @{ AVVideoAverageBitRateKey : @(20 * 100 * 1000 * 1.5),
                                                  AVVideoExpectedSourceFrameRateKey : @(25),
                                                  AVVideoMaxKeyFrameIntervalKey : @(25),
                                                  AVVideoProfileLevelKey : AVVideoProfileLevelH264Main31
                                                  };
     }else {
-        // 超清
+        // Super clear
         compressionProperties = @{ AVVideoAverageBitRateKey : @(25 * 100 * 1000 * 1.5),
                                                  AVVideoExpectedSourceFrameRateKey : @(25),
                                                  AVVideoMaxKeyFrameIntervalKey : @(25),
@@ -75,7 +74,7 @@
             };
 }
 
-// AppGroup共享目录文件路径
+// AppGroup shared directory file path
 + (NSString *)getAppGroupFilePath {
 
     NSString *path = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:FMGroupIdentifier].path;

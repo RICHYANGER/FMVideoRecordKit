@@ -12,14 +12,14 @@
 
 
 @implementation FMVideoFileTool
- // 将图片存入固定相册
+// Save pictures to a fixed album
 + (void)saveImage:(UIImage *)image toMyAlbumCompletionHandler:(void (^)(BOOL))completionHandler
 {
     [self saveImage:image toAlbum:FMALBUM completionHandler:completionHandler];
 }
 
 
-//  将图片存入指定的相册文件夹
+// Save the picture to the specified album folder
 + (void)saveImage:(UIImage *)image toAlbum:(NSString *)albumName completionHandler:(void (^)(BOOL))completionHandler
 {
     [self requestPhotoAuthorizationBlock:^(BOOL hasAuthorize) {
@@ -32,7 +32,7 @@
     }];
 }
 
-// 将图片数组写入固定相册
+// Write an array of pictures to a fixed album
 + (void)saveImages:(NSArray<UIImage *> *)images toAlbum:(NSString *)albumName completionHandler:(void (^)(BOOL))completionHandler {
     [self requestPhotoAuthorizationBlock:^(BOOL hasAuthorize) {
        
@@ -45,7 +45,7 @@
 }
 
 
-// 请求相册访问权限
+// Request album access
 + (void)requestPhotoAuthorizationBlock:(void (^)(BOOL))block
 {
     // 判断授权状态

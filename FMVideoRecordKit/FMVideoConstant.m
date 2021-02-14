@@ -8,14 +8,14 @@
 
 #import "FMVideoConstant.h"
 
-// 错误域
+// Error domain
 NSString *const FMVideoRecoderErrorDomain = @"com.feimo.FMVideoRecoderErrorDomain";
-// 相册名
+// Album name
 NSString *const FMALBUM = @"FM录屏大师";
-// APPGroup标识
+// APPGroup identity
 NSString * const FMGroupIdentifier = @"group.feimo.VideoRecording";
-// 共享目录下自定义文件夹
+// Custom folders under shared directories
 NSString * const FMGroupDirName = @"AppGropDir";
-// 共享目录下的文件名
+// File names in shared directories
 NSString * const FMRepKitFileName = @"ReplayKit.mp4";
 
