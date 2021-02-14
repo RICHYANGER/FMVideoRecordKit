@@ -72,7 +72,7 @@
 
 - (void)startWritingWithError:(NSError *__autoreleasing *)error {
     
-    dispatch_async(self.dispatchQueue, ^{
+    // dispatch_async(self.dispatchQueue, ^{
 
         // Record cache address
         NSURL *url = [NSURL fileURLWithPath:self.videoTempPath];
@@ -147,14 +147,14 @@
         }
         
         self.isWriting = NO;
-    });
+    // });
 }
 
 - (void)writeVideoBuffer:(CMSampleBufferRef)sampleBuffer bufferType:(RPSampleBufferType)bufferType error:(NSError *__autoreleasing *)error
 API_AVAILABLE(ios(10.0)){
     @autoreleasepool {
         CFRetain(sampleBuffer);
-        dispatch_async(_dispatchQueue, ^{
+        // dispatch_async(_dispatchQueue, ^{
             @synchronized(self) {
             if (!CMSampleBufferDataIsReady(sampleBuffer)) {
                 CFRelease(sampleBuffer);
@@ -207,7 +207,7 @@ API_AVAILABLE(ios(10.0)){
             }
             CFRelease(sampleBuffer);
             }
-        });
+        // });
     }
 }
 
