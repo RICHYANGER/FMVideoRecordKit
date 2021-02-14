@@ -150,64 +150,54 @@
     // });
 }
 
-- (void)writeVideoBuffer:(CMSampleBufferRef)sampleBuffer bufferType:(RPSampleBufferType)bufferType error:(NSError *__autoreleasing *)error
-API_AVAILABLE(ios(10.0)){
-    @autoreleasepool {
-        CFRetain(sampleBuffer);
-        // dispatch_async(_dispatchQueue, ^{
-            @synchronized(self) {
-            if (!CMSampleBufferDataIsReady(sampleBuffer)) {
-                CFRelease(sampleBuffer);
-                return;
-            }
-            
-            if (self.assetWriter.status == AVAssetWriterStatusUnknown && !self.isWriting) {
-                [self.assetWriter startWriting];
-                [self.assetWriter startSessionAtSourceTime:CMSampleBufferGetPresentationTimeStamp(sampleBuffer)];
-                self.isWriting = YES;
-                 NSLog(@"Screen recording turn on session Video");
-            }
-            if (self.assetWriter.status == AVAssetWriterStatusFailed) {
-                NSLog(@"Screen recording AVAssetWriterStatusFailed error :%@", self.assetWriter.error);
-                CFRelease(sampleBuffer);
-                return;
-            }
-            if (self.assetWriter.status == AVAssetWriterStatusCompleted) {
-                NSLog(@"Screen recording AVAssetWriterStatus Completed");
-            }
-            
-            if (bufferType == RPSampleBufferTypeVideo) {
-                if ([self.assetWriterVideoInput isReadyForMoreMediaData]) {
-                    if (![self.assetWriterVideoInput appendSampleBuffer:sampleBuffer]) {
-                          *error = FMVideoRecoderError(@"Failed to Appending Video Buffer", FMVideoRecoderErrorFailedToAppendVideoBuffer);
+- (void)writeVideoBuffer:(CMSampleBufferRef)sampleBuffer bufferType:(RPSampleBufferType)bufferType error:(NSError *__autoreleasing *)error {
+    if (!CMSampleBufferDataIsReady(sampleBuffer)) {
+        return;
+    }
+    
+    if (self.assetWriter.status == AVAssetWriterStatusUnknown && !self.isWriting) {
+        [self.assetWriter startWriting];
+        [self.assetWriter startSessionAtSourceTime:CMSampleBufferGetPresentationTimeStamp(sampleBuffer)];
+        self.isWriting = YES;
+         NSLog(@"Screen recording turn on session Video");
+    }
+    if (self.assetWriter.status == AVAssetWriterStatusFailed) {
+        NSLog(@"Screen recording AVAssetWriterStatusFailed error :%@", self.assetWriter.error);
+        // CFRelease(sampleBuffer);
+        return;
+    }
+    if (self.assetWriter.status == AVAssetWriterStatusCompleted) {
+        NSLog(@"Screen recording AVAssetWriterStatus Completed");
+    }
+    
+    if (bufferType == RPSampleBufferTypeVideo) {
+        if ([self.assetWriterVideoInput isReadyForMoreMediaData]) {
+            if (![self.assetWriterVideoInput appendSampleBuffer:sampleBuffer]) {
+                  *error = FMVideoRecoderError(@"Failed to Appending Video Buffer", FMVideoRecoderErrorFailedToAppendVideoBuffer);
 
-                    }
-                    NSLog(@"write video Buffer");
-                 }
-            }else if (bufferType == RPSampleBufferTypeAudioMic) {
-                    
-                if (self.isWriting && [self.assetWriterMicrophoneInput isReadyForMoreMediaData]  && self.recordAudioMic) {
-                    // Write audio directly to mp4 through the default parameters
-                    if (![self.assetWriterMicrophoneInput appendSampleBuffer:sampleBuffer]) {
-                        
-                        *error = FMVideoRecoderError(@"Failed to Appending audio Buffer", FMVideoRecoderErrorFailedToAppendAudioBuffer);
-                    }
-                    NSLog(@"write micphone Buffer");
-                }
-            }else if (bufferType == RPSampleBufferTypeAudioApp) {
-                    
-                if (self.isWriting && [self.assetWriterAudioInput isReadyForMoreMediaData] && self.recordVideoSound) {
-                    // Write audio directly to mp4 through the default parameters
-                    if (![self.assetWriterAudioInput appendSampleBuffer:sampleBuffer]) {
-                        
-                        *error = FMVideoRecoderError(@"Failed to Appending audio Buffer", FMVideoRecoderErrorFailedToAppendAudioBuffer);
-                    }
-                    NSLog(@"write audio Buffer");
-                }
             }
-            CFRelease(sampleBuffer);
+            NSLog(@"write video Buffer");
+         }
+    } else if (bufferType == RPSampleBufferTypeAudioMic) {
+            
+        if (self.isWriting && [self.assetWriterMicrophoneInput isReadyForMoreMediaData]  && self.recordAudioMic) {
+            // Write audio directly to mp4 through the default parameters
+            if (![self.assetWriterMicrophoneInput appendSampleBuffer:sampleBuffer]) {
+                
+                *error = FMVideoRecoderError(@"Failed to Appending audio Buffer", FMVideoRecoderErrorFailedToAppendAudioBuffer);
             }
-        // });
+            NSLog(@"write micphone Buffer");
+        }
+    } else if (bufferType == RPSampleBufferTypeAudioApp) {
+            
+        if (self.isWriting && [self.assetWriterAudioInput isReadyForMoreMediaData] && self.recordVideoSound) {
+            // Write audio directly to mp4 through the default parameters
+            if (![self.assetWriterAudioInput appendSampleBuffer:sampleBuffer]) {
+                
+                *error = FMVideoRecoderError(@"Failed to Appending audio Buffer", FMVideoRecoderErrorFailedToAppendAudioBuffer);
+            }
+            NSLog(@"write audio Buffer");
+        }
     }
 }
 
