@@ -13,44 +13,44 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FMVideoFileTool : NSObject
 
 /**
- 将图片存入固定相册
- 
- @param image 目标图片
- @param completionHandler 结果返回
+Save pictures to fixed albums
+
+@param image target image
+@param completionHandler result returned
  */
 + (void)saveImage:(UIImage *)image toMyAlbumCompletionHandler:(void(^)(BOOL success))completionHandler;
 + (void)saveImages:(NSArray<UIImage *>*)images toAlbum:(nullable NSString *)albumName completionHandler:(void(^)(BOOL success))completionHandler;
 
 /**
- 将图片存入指定的相册文件夹
- 
- @param image 要存入的图片对象
- @param albumName 要存入的相册名称,nil表示存入系统图库
- @param completionHandler 存入结果回调
+Save pictures to the specified album folder
+
+@param image Image object to be stored
+@param albumName the name of the album to be stored,nil means stored in the system Gallery
+@param completionHandler saves the result callback
  */
 + (void)saveImage:(UIImage *)image toAlbum:(nullable NSString *)albumName completionHandler:(void(^)(BOOL success))completionHandler;
 
 /**
- 将图片存入指定相册文件夹
- 
- @param path 图片路径
- @param albumName 相册名称
- @param completionHandler 存入结果回调
+Save pictures to the specified album folder
+
+@param path image path
+@param albumName album name
+@param completionHandler saves the result callback
  */
 + (void)saveImageWithPath:(NSString *)path albumName:(nullable NSString *)albumName completionHandler:(void(^)(BOOL success))completionHandler;
 
 /**
-将视频存入指定相册文件
- @param videoUrl 视频URL地址
- @param completionHandler 结果返回
+Save the video to the specified album file
+@param videoUrl video URL address
+@param completionHandler result returned
 */
 + (void)saveVideo:(NSURL *)videoUrl toMyAlbumcompletionHandler:(void(^)(BOOL success))completionHandler;
 + (void)saveVideo:(NSURL *)videoUrl toAlbumName:(nullable NSString *)albumName completionHandler:(void(^)(BOOL success))completionHandler;
 
 /**
- 请求相册访问权限
- 
- @param block 结果返回
+Request album access
+
+@param block result returned
  */
 + (void)requestPhotoAuthorizationBlock:(void(^)(BOOL hasAuthorize))block;
 

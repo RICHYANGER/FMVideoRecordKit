@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC 
-FMVideoRecordKit 是一个视频录屏工具集合类方便快速接入录制视频功能 主要包含以下功能：1)录屏数据的写入本地文件 2)根据不同的清晰度设置不同的录屏参数 3)将视频文件写入相册
+FMVideoRecordKit Is a video recording screen tool collection class easy and quick access to record video function mainly includes the following functions: 1)recording screen data is written to the local file 2)set different recording screen parameters according to different clarity 3)the video file is written to the album 4) the video file is written to the album 5) the video file is written to the album 6) the video file is written to the album 6) the video file is written to the album 6) the video file is
 	DESC
   # 项目主页
   s.homepage     = "https://github.com/RICHYANGER/FMVideoRecordKit"

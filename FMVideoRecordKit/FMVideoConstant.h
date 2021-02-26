@@ -9,19 +9,20 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-// 错误域
-UIKIT_EXTERN NSString * const FMVideoRecoderErrorDomain;
-// 相册名
-UIKIT_EXTERN NSString * const FMALBUM;
-// APPGroup标识
+// Error domain
+UIKIT_EXTERN NSString *const FMVideoRecoderErrorDomain;
+// Album name
+UIKIT_EXTERN NSString *const FMALBUM;
+// APPGroup identity
 UIKIT_EXTERN NSString * const FMGroupIdentifier;
-// 共享目录下自定义文件夹
+// Custom folders under shared directories
 UIKIT_EXTERN NSString * const FMGroupDirName;
-// 共享目录下的文件名
+// File names in shared directories
 UIKIT_EXTERN NSString * const FMRepKitFileName;
 
 
-// 错误码
+
+// Error code
 typedef NS_ENUM(NSInteger, FMVideoRecoderErrorCode) {
     
     FMVideoRecoderErrorFailedToAddVideoInput  = 1000,
@@ -44,19 +45,19 @@ typedef NS_ENUM(NSInteger, FMVideoRecoderErrorCode) {
     
 };
 
-// 视频清晰度
+// Video clarity
 typedef NS_ENUM(NSInteger, FMVideoRecordDefinition) {
     
-    FMVideoRecordStandardDefinition       = 1,    // 标清
-    FMVideoRecordHighDefinition           = 2,    // 高清
-    FMVideoRecordSuperDefinition          = 3     // 超清
+    FMVideoRecordStandardDefinition       = 1,    // Standard definition
+    FMVideoRecordHighDefinition           = 2,    // HD
+    FMVideoRecordSuperDefinition          = 3     // Super clear
 };
 
-// 视频录屏方向
+// Video recording direction
 typedef NS_ENUM(NSInteger, FMVideoRecordOrientation) {
     
-    FMVideoRecordPortraitOrientation    = 1, // 竖屏
-    FMVideoRecordLandscapeOrientation   = 2, // 横屏
+    FMVideoRecordPortraitOrientation    = 1, // Vertical screen
+    FMVideoRecordLandscapeOrientation   = 2, // Landscape screen
 };
 
 NS_INLINE NSError* FMVideoRecoderError(NSString *description,FMVideoRecoderErrorCode code)
